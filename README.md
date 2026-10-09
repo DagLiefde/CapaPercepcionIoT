@@ -30,7 +30,7 @@ La conectividad Wi-Fi/MQTT, el servidor y el tablero corresponden a las siguient
 | LED verde, amarillo y rojo | 3 | Semáforo de aforo |
 | Servomotor SG90 | 1 | Barrera |
 | Resistencias 10 kΩ | 3 | *Pull-up* de los dos IR y divisor de la LDR |
-| Resistencias 330 Ω | 3 | Limitación de corriente de los LED |
+| Resistencias 220 Ω | 3 | Limitación de corriente de los LED |
 | Arduino Mega 2560 (por USB) | 1 | Fuente de 5 V del montaje |
 
 ## Asignación de pines
@@ -49,7 +49,7 @@ La conectividad Wi-Fi/MQTT, el servidor y el tablero corresponden a las siguient
 
 - **E18-D80NK:** cable café a 5 V, azul a GND y negro (salida) al GPIO. La salida es NPN de colector abierto, así que cada canal lleva una resistencia *pull-up* de 10 kΩ a **3.3 V** (nunca a 5 V). El firmware desactiva los *pull-up* internos, por lo que las externas son obligatorias.
 - **LDR:** 3.3 V, LDR, nodo conectado a GPIO34, resistencia de 10 kΩ a GND.
-- **LED:** GPIO, resistencia de 330 Ω, ánodo del LED; cátodo a GND.
+- **LED:** GPIO, resistencia de 220 Ω, ánodo del LED; cátodo a GND.
 - **Servo SG90:** señal a GPIO23, 5 V y GND. Se alimenta desde el pin de 5 V de un Arduino Mega 2560 conectado por USB, con GND común con el ESP32.
 - **GND común** entre sensores, LDR, servo, Arduino Mega y ESP32.
 
