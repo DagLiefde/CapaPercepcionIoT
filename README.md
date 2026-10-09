@@ -49,11 +49,17 @@ La conectividad Wi-Fi/MQTT, el servidor y el tablero corresponden a las siguient
 
 - **E18-D80NK:** cable café a 5 V, azul a GND y negro (salida) al GPIO. La salida es NPN de colector abierto, así que cada canal lleva una resistencia *pull-up* de 10 kΩ a **3.3 V** (nunca a 5 V). El firmware desactiva los *pull-up* internos, por lo que las externas son obligatorias.
 - **LDR:** 3.3 V, LDR, nodo conectado a GPIO34, resistencia de 10 kΩ a GND.
-- **LED:** GPIO, resistencia de 220 Ω, ánodo del LED; cátodo a GND.
+- **LED:** ánodo al GPIO; cátodo a GND a través de una resistencia de 220 Ω.
 - **Servo SG90:** señal a GPIO23, 5 V y GND. Se alimenta desde el pin de 5 V de un Arduino Mega 2560 conectado por USB, con GND común con el ESP32.
 - **GND común** entre sensores, LDR, servo, Arduino Mega y ESP32.
 
 Nunca se debe conectar 5 V a un pin GPIO del ESP32.
+
+## Esquemas de conexión
+
+![Esquema de sensores](docs/esquema_sensores.svg)
+
+![Esquema de actuadores](docs/esquema_actuadores.svg)
 
 ## Arquitectura del firmware
 
@@ -116,6 +122,9 @@ Mensaje JSON periódico (valores ilustrativos):
 ├── .gitignore
 ├── .vscode/
 │   └── extensions.json
+├── docs/
+│   ├── esquema_sensores.svg
+│   └── esquema_actuadores.svg
 └── src/
     ├── CMakeLists.txt
     └── main.c
